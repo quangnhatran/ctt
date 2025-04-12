@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cổng tiện ích Internet 🌐</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #1e90ff;
+    }
+
+    input[type="text"] {
+      width: 60%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: white;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .card:hover {
+      background: #333;
+      transform: translateY(-5px);
+    }
+
+    .card span {
+      display: block;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌐 Cổng tiện ích Internet</h1>
+  <input type="text" id="search" placeholder="Tìm kiếm tiện ích..."/>
+
+  <div class="grid" id="linkGrid">
+    <a class="card" href="https://www.google.com" target="_blank">
+      🔍 Google
+      <span>Công cụ tìm kiếm</span>
+    </a>
+    <a class="card" href="https://translate.google.com" target="_blank">
+      🌐 Google Dịch
+      <span>Dịch ngôn ngữ</span>
+    </a>
+    <a class="card" href="https://chat.openai.com" target="_blank">
+      🤖 ChatGPT
+      <span>Trợ lý AI</span>
+    </a>
+    <a class="card" href="https://youtube.com" target="_blank">
+      📺 YouTube
+      <span>Xem video</span>
+    </a>
+    <a class="card" href="https://www.canva.com" target="_blank">
+      🎨 Canva
+      <span>Thiết kế đồ họa</span>
+    </a>
+    <a class="card" href="https://www.remove.bg" target="_blank">
+      ✂️ Remove BG
+      <span>Xóa nền ảnh</span>
+    </a>
+    <a class="card" href="https://pdf.io" target="_blank">
+      📄 PDF Tools
+      <span>Chỉnh sửa PDF</span>
+    </a>
+    <a class="card" href="https://www.speedtest.net" target="_blank">
+      🚀 Speedtest
+      <span>Kiểm tra tốc độ mạng</span>
+    </a>
+    <a class="card" href="https://www.github.com" target="_blank">
+      💻 GitHub
+      <span>Chia sẻ mã nguồn</span>
+    </a>
+    <a class="card" href="https://www.w3schools.com" target="_blank">
+      🌐 W3Schools
+      <span>Tài liệu lập trình</span>
+    </a>
+    <a class="card" href="https://www.udemy.com" target="_blank">
+      🎓 Udemy
+      <span>Khóa học trực tuyến</span>
+    </a>
+    <a class="card" href="https://www.trello.com" target="_blank">
+      📋 Trello
+      <span>Quản lý dự án</span>
+    </a>
+    <a class="card" href="https://www.medium.com" target="_blank">
+      ✍ Medium
+      <span>Đọc bài viết</span>
+    </a>
+    <a class="card" href="https://www.notion.so" target="_blank">
+      📝 Notion
+      <span>Quản lý công việc</span>
+    </a>
+    <a class="card" href="https://www.codecademy.com" target="_blank">
+      👨‍💻 Codecademy
+      <span>Học lập trình</span>
+    </a>
+    <a class="card" href="https://www.edx.org" target="_blank">
+      🎓 edX
+      <span>Khóa học miễn phí</span>
+    </a>
+    <a class="card" href="https://www.pixabay.com" target="_blank">
+      🖼 Pixabay
+      <span>Ảnh và video miễn phí</span>
+    </a>
+    <a class="card" href="https://www.unsplash.com" target="_blank">
+      🌄 Unsplash
+      <span>Ảnh miễn phí</span>
+    </a>
+    <a class="card" href="https://www.shutterstock.com" target="_blank">
+      📸 Shutterstock
+      <span>Ảnh chất lượng cao</span>
+    </a>
+    <a class="card" href="https://translate.google.com/" target="_blank">
+         Dịch thuật
+        <span>Dịch Ngôn Ngữ</span>
+      </a>
+      <a class="card" href="notepad.html" target="_blank">
+        Ghi Chú
+        <span>NotePad</span>
+      </a>
+      <a class="card" href="giaipt.html" target="_blank">
+        Giải PT
+        <span>Bài Toán</span>
+      </a>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('search');
+    const cards = document.querySelectorAll('.card');
+
+    searchInput.addEventListener('input', function() {
+      const searchValue = this.value.toLowerCase();
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = text.includes(searchValue) ? 'block' : 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>
