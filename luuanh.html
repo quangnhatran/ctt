@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kho lưu trữ ảnh (localStorage)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+
+    form {
+      margin: 20px;
+    }
+
+    #gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    #gallery img {
+      width: 200px;
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <h1>Kho lưu trữ hình ảnh (LocalStorage)</h1>
+  <form id="uploadForm">
+    <input type="file" id="imageInput" accept="image/*" required />
+    <button type="submit">Tải lên</button>
+  </form>
+
+  <div id="gallery"></div>
+
+  <script>
+    // Hiển thị ảnh đã lưu trong localStorage khi tải trang
+    function loadImages() {
+      const gallery = document.getElementById('gallery');
+      gallery.innerHTML = '';
+
+      const images = JSON.parse(localStorage.getItem('images') || '[]');
+      images.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        gallery.appendChild(img);
+      });
+    }
+
+    // Xử lý upload ảnh mới
+    document.getElementById('uploadForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const fileInput = document.getElementById('imageInput');
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        const images = JSON.parse(localStorage.getItem('images') || '[]');
+        images.push(event.target.result);
+        localStorage.setItem('images', JSON.stringify(images));
+        loadImages();
+      };
+      reader.readAsDataURL(file);
+
+      fileInput.value = ''; // reset input
+    });
+
+    // Tải ảnh khi mở trang
+    loadImages();
+  </script>
+</body>
+</html>
