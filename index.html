@@ -125,35 +125,7 @@
     </div>
   </div>
 
-  <!-- JavaScript xử lý mã PIN và tìm kiếm -->
-  <script>
-    function checkPin() {
-      const correctPin = "3010";
-      const userPin = document.getElementById("pin-input").value;
-      const errorMsg = document.getElementById("error-msg");
-
-      if (userPin === correctPin) {
-        document.getElementById("pin-screen").style.display = "none";
-        document.getElementById("main-content").style.display = "block";
-      } else {
-        errorMsg.textContent = "Mã PIN không đúng. Vui lòng thử lại.";
-      }
-    }
-
-    // Xử lý tìm kiếm sau khi hiển thị nội dung
-    const searchInput = document.getElementById('search');
-    const cards = document.querySelectorAll('.card');
-
-    if (searchInput) {
-      searchInput.addEventListener('input', function () {
-        const searchValue = this.value.toLowerCase();
-        cards.forEach(card => {
-          const text = card.textContent.toLowerCase();
-          card.style.display = text.includes(searchValue) ? 'block' : 'none';
-        });
-      });
-    }
-  </script>
-
+<script src="script.js">
+</script>
 </body>
 </html>
