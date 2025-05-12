@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cổng tiện ích Internet By Trần Quang Nhã 05 🌐</title>
+  <title>Cổng tiện ích Internet 🌐</title>
   <style>
     body {
       margin: 0;
@@ -19,7 +19,7 @@
       color: #1e90ff;
     }
 
-    input[type="text"] {
+    input[type="text"], input[type="password"] {
       width: 60%;
       padding: 10px;
       border-radius: 8px;
@@ -53,124 +53,106 @@
       margin-top: 8px;
       font-size: 14px;
     }
+
+    #pin-screen {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #1e1e1e;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      z-index: 9999;
+    }
+
+    #main-content {
+      display: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background-color: #1e90ff;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0f70d1;
+    }
   </style>
 </head>
 <body>
 
-  <h1>🌐 Cổng tiện ích Internet Make By Quang Nhã đẹp chai</h1>
-  <input type="text" id="search" placeholder="Tìm kiếm tiện ích..."/>
-
-  <div class="grid" id="linkGrid">
-    <a class="card" href="https://www.google.com" target="_blank">
-      🔍 Google
-      <span>Công cụ tìm kiếm</span>
-    </a>
-    <a class="card" href="https://translate.google.com" target="_blank">
-      🌐 Google Dịch
-      <span>Dịch ngôn ngữ</span>
-    </a>
-    <a class="card" href="https://chat.openai.com" target="_blank">
-      🤖 ChatGPT
-      <span>Trợ lý AI</span>
-    </a>
-    <a class="card" href="https://youtube.com" target="_blank">
-      📺 YouTube
-      <span>Xem video</span>
-    </a>
-    <a class="card" href="https://www.canva.com" target="_blank">
-      🎨 Canva
-      <span>Thiết kế đồ họa</span>
-    </a>
-    <a class="card" href="https://www.remove.bg" target="_blank">
-      ✂️ Remove BG
-      <span>Xóa nền ảnh</span>
-    </a>
-    <a class="card" href="https://pdf.io" target="_blank">
-      📄 PDF Tools
-      <span>Chỉnh sửa PDF</span>
-    </a>
-    <a class="card" href="https://www.speedtest.net" target="_blank">
-      🚀 Speedtest
-      <span>Kiểm tra tốc độ mạng</span>
-    </a>
-    <a class="card" href="https://www.github.com" target="_blank">
-      💻 GitHub
-      <span>Chia sẻ mã nguồn</span>
-    </a>
-    <a class="card" href="https://www.w3schools.com" target="_blank">
-      🌐 W3Schools
-      <span>Tài liệu lập trình</span>
-    </a>
-    <a class="card" href="https://www.udemy.com" target="_blank">
-      🎓 Udemy
-      <span>Khóa học trực tuyến</span>
-    </a>
-    <a class="card" href="https://www.trello.com" target="_blank">
-      📋 Trello
-      <span>Quản lý dự án</span>
-    </a>
-    <a class="card" href="https://www.medium.com" target="_blank">
-      ✍ Medium
-      <span>Đọc bài viết</span>
-    </a>
-    <a class="card" href="https://www.notion.so" target="_blank">
-      📝 Notion
-      <span>Quản lý công việc</span>
-    </a>
-    <a class="card" href="https://www.codecademy.com" target="_blank">
-      👨‍💻 Codecademy
-      <span>Học lập trình</span>
-    </a>
-    <a class="card" href="https://www.edx.org" target="_blank">
-      🎓 edX
-      <span>Khóa học miễn phí</span>
-    </a>
-    <a class="card" href="https://www.pixabay.com" target="_blank">
-      🖼 Pixabay
-      <span>Ảnh và video miễn phí</span>
-    </a>
-    <a class="card" href="https://www.unsplash.com" target="_blank">
-      🌄 Unsplash
-      <span>Ảnh miễn phí</span>
-    </a>
-    <a class="card" href="https://www.shutterstock.com" target="_blank">
-      📸 Shutterstock
-      <span>Ảnh chất lượng cao</span>
-    </a>
-    <a class="card" href="https://translate.google.com/" target="_blank">
-         Dịch thuật
-        <span>Dịch Ngôn Ngữ</span>
-      </a>
-      <a class="card" href="notepad.html" target="_blank">
-        Ghi Chú
-        <span>NotePad</span>
-      </a>
-      <a class="card" href="giaipt.html" target="_blank">
-        Giải PT
-        <span>Bài Toán</span>
-      </a>
-      <a class="card" href="luuanh.html" target="_blank">
-        Lưu Ảnh
-        <span>Kho Lưu Trữ Ảnh </span>
-      </a>
+  <!-- Giao diện yêu cầu mã PIN -->
+  <div id="pin-screen">
+    <h2>🔒 Nhập mã PIN để truy cập</h2>
+    <input type="password" id="pin-input" placeholder="Nhập mã PIN" />
+    <button onclick="checkPin()">Xác nhận</button>
+    <p id="error-msg" style="color:red; margin-top: 10px;"></p>
   </div>
-  <br>
-  <hr>
-  <footer>
-    I Love You ,Cảm ơn vì đã ghé trang
-  </footer>
 
+  <!-- Nội dung chính -->
+  <div id="main-content">
+    <h1>🌐 Cổng tiện ích Internet</h1>
+    <input type="text" id="search" placeholder="Tìm kiếm tiện ích..."/>
+
+    <div class="grid" id="linkGrid">
+      <!-- Các thẻ tiện ích giữ nguyên như bạn gửi -->
+      <a class="card" href="https://www.google.com" target="_blank">🔍 Google<span>Công cụ tìm kiếm</span></a>
+      <a class="card" href="https://translate.google.com" target="_blank">🌐 Google Dịch<span>Dịch ngôn ngữ</span></a>
+      <a class="card" href="https://chat.openai.com" target="_blank">🤖 ChatGPT<span>Trợ lý AI</span></a>
+      <a class="card" href="https://youtube.com" target="_blank">📺 YouTube<span>Xem video</span></a>
+      <a class="card" href="https://www.canva.com" target="_blank">🎨 Canva<span>Thiết kế đồ họa</span></a>
+      <a class="card" href="https://www.remove.bg" target="_blank">✂️ Remove BG<span>Xóa nền ảnh</span></a>
+      <a class="card" href="https://pdf.io" target="_blank">📄 PDF Tools<span>Chỉnh sửa PDF</span></a>
+      <a class="card" href="https://www.speedtest.net" target="_blank">🚀 Speedtest<span>Kiểm tra tốc độ mạng</span></a>
+      <a class="card" href="https://www.github.com" target="_blank">💻 GitHub<span>Chia sẻ mã nguồn</span></a>
+      <a class="card" href="https://www.w3schools.com" target="_blank">🌐 W3Schools<span>Tài liệu lập trình</span></a>
+      <a class="card" href="https://www.udemy.com" target="_blank">🎓 Udemy<span>Khóa học trực tuyến</span></a>
+      <a class="card" href="https://www.trello.com" target="_blank">📋 Trello<span>Quản lý dự án</span></a>
+      <a class="card" href="https://www.medium.com" target="_blank">✍ Medium<span>Đọc bài viết</span></a>
+      <a class="card" href="https://www.notion.so" target="_blank">📝 Notion<span>Quản lý công việc</span></a>
+      <a class="card" href="https://www.codecademy.com" target="_blank">👨‍💻 Codecademy<span>Học lập trình</span></a>
+      <a class="card" href="https://www.edx.org" target="_blank">🎓 edX<span>Khóa học miễn phí</span></a>
+      <a class="card" href="https://www.pixabay.com" target="_blank">🖼 Pixabay<span>Ảnh và video miễn phí</span></a>
+      <a class="card" href="https://www.unsplash.com" target="_blank">🌄 Unsplash<span>Ảnh miễn phí</span></a>
+      <a class="card" href="https://www.shutterstock.com" target="_blank">📸 Shutterstock<span>Ảnh chất lượng cao</span></a>
+      <a class="card" href="https://translate.google.com/" target="_blank">Dịch thuật<span>Dịch Ngôn Ngữ</span></a>
+      <a class="card" href="notepad.html" target="_blank">Ghi Chú<span>NotePad</span></a>
+      <a class="card" href="giaipt.html" target="_blank">Giải PT<span>Bài Toán</span></a>
+      <a class="card" href="luuanh.html" target="_blank">Lưu Ảnh<span>Kho Lưu Trữ Ảnh</span></a>
+      <a class="card" href="luunhac.html" target="_blank">Lưu Nhạc<span>🎶Kho Lưu Trữ Nhạc 🎶</span></a>
+    </div>
+  </div>
+
+  <!-- JavaScript xử lý mã PIN và tìm kiếm -->
   <script>
+    function checkPin() {
+      const correctPin = "3010";
+      const userPin = document.getElementById("pin-input").value;
+      const errorMsg = document.getElementById("error-msg");
+
+      if (userPin === correctPin) {
+        document.getElementById("pin-screen").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+      } else {
+        errorMsg.textContent = "Mã PIN không đúng. Vui lòng thử lại.";
+      }
+    }
+
+    // Xử lý tìm kiếm sau khi hiển thị nội dung
     const searchInput = document.getElementById('search');
     const cards = document.querySelectorAll('.card');
 
-    searchInput.addEventListener('input', function() {
-      const searchValue = this.value.toLowerCase();
-      cards.forEach(card => {
-        const text = card.textContent.toLowerCase();
-        card.style.display = text.includes(searchValue) ? 'block' : 'none';
+    if (searchInput) {
+      searchInput.addEventListener('input', function () {
+        const searchValue = this.value.toLowerCase();
+        cards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          card.style.display = text.includes(searchValue) ? 'block' : 'none';
+        });
       });
-    });
+    }
   </script>
 
 </body>
